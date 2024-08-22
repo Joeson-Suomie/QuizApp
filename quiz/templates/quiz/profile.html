@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <title>Profile</title>
+<div class="container">
+    <h1 style="float:right;">Welcome, {{ user.username }}</h1>
+    <h1 class="mb-10">Are You Ready To Quiz !.</h1>
+    <br><br><br><br><br><br>
+ <div>
+    <form id="logout-form" method="POST" action="{% url 'logout' %} " class="mt-10">
+        {% csrf_token %}
+        <button class="btn btn-primary" type="submit">Logout</button>
+    </form>
+ </div>
+    <div class="text-center">
+   <a href="{% url 'take_quiz'%}"> <button class="btn-primary">Take Quiz Here</button></a>
+  <div>
+</div>
+    
+    
+{% endblock content %}

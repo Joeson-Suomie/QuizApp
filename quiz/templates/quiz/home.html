@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% block title %}Home{% endblock %}
+<div class="container">
+    <h1 class="quiz-title">Welcome to the Quiz App</h1><br>
+    <div class="text-center">
+        <a href="{% url 'register' %}">Register</a> or
+        <a href="{% url 'login' %}">Login</a> to take a quiz.
+    </div>
+
+</div>
+
+{% endblock content %}

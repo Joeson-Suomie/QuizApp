@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Quiz App{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid" style="float: right;">
+            <a class="navbar-brand" href="#">Quiz App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse mb-10" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}"><button class="btn btn-primary" type="submit">Home</button></a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}"><button class="btn btn-primary" type="submit">Profile</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'take_quiz' %}"><button class="btn btn-primary" type="submit">Quiz</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logged_out' %}"><button class="btn btn-primary" type="submit">Logout</button></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}"><button class="btn btn-primary" type="submit">Login</button></a>
+                    </li>
+                    {% endif %}
+
+            </div>
+        </div>
+    </nav>
+    <header>
+
+
+
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <div class="card text-center">
+            <div class="card-header">
+                Featured
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Easy to use</h5>
+                <p class="card-text">Just create an account, Login to you account and start answering questions.</p>
+                <a href="#" class="btn btn-primary">Login</a>
+            </div>
+            <div class="card-footer text-muted">
+                <p>&copy; 2024 Quiz App</p>
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+</html>
